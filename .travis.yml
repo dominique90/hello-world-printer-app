@@ -1,7 +1,11 @@
 language: python
 python: 
 - "2.7"
+services:
+- docker
 install:
 - make deps
 script:
 - make test
+after_success:
+- PASSWORD=$DOCKER_PASSWORD make docker_build
