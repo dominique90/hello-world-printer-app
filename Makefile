@@ -15,3 +15,7 @@ run:
 
 	PYTHONPATH=. py.main
 
+docker_build:
+
+	docker build -t hello-world-printer
+
