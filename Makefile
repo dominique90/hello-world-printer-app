@@ -19,3 +19,13 @@ docker_build:
 
 	docker build -t hello-world-printer .
 
+USERNAME=dominique90
+TAG=$ dominique90/hello-world-printer
+
+docker_push:
+	docker login --username $ dominique90 --haselko90 ; \
+	docker tag hello-world-printer $(TAG) ; \
+	docker push $ (TAG) ; \
+	docker logout;
+
+
