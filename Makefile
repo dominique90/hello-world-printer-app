@@ -13,7 +13,7 @@ test:
 
 run:
 
-	PYTHONPATH=. py.main
+	python main.py
 
 docker_build:
 
