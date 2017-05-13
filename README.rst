@@ -53,6 +53,7 @@ Pomocnicze
   ::
 
     yum install python-pip
+    yum makecache fast
     pip install virtualenv
     pip install virtualenvwrapper
 
@@ -85,3 +86,5 @@ Materiały
 - https://virtualenvwrapper.readthedocs.io/en/latest/
 
 Został dodany monitoring
+
+Tworzenie środowiska wirtualnego (usuwanie starego)

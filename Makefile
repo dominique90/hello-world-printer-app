@@ -13,11 +13,19 @@ test:
 
 run:
 
-	PYTHONPATH=. py.main
+	python main.py 
 
 docker_build:
 
 	docker build -t hello-world-printer .
+
+test_cov:
+	
+	PYTHONPATH=. py.test --verbose -s --cov=.
+
+test_xunit:
+
+	PYTHONPATH=. py.test -s --cov=.  --junit-xml=test_results.xml
 
 USERNAME=dominique90
 TAG=$(USERNAME)/hello-world-printer
