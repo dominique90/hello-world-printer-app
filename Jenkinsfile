@@ -4,8 +4,24 @@ pipeline {
         stage('Test') {
             steps {
 	            sh 'make deps'
-	            sh 'make test'
+          }
+        }
+        stage('Linter') {
+            steps {
+            sh 'make lint || true'
         	}
         }
-    }
+        stage('Test') {
+            steps {
+              sh 'make test with test_xunit || true'
+              step([$class: 'XUnitBuilder',
+                  tresholds: [
+                        [$class: 'SkippedTreshold', failureTreshold: '0'],
+                        [$class: 'FailedTreshold', failureThreshold: '1'],
+                  tools: [[$class: 'JUnitType', pattern: 'test_results.xml']]]
+            }
+        }
+      }
+  }
+
 }
